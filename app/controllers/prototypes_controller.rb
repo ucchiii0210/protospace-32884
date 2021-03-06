@@ -32,9 +32,9 @@ class PrototypesController < ApplicationController
     @prototype.update(prototype_params)
     @comments = @prototype.comments.includes(:user)
     if @prototype.update(prototype_params)
-      render :show
+      redirect_to prototype_path(@prototype)
     else
-      render root_path
+      render :edit
     end
   end
 
